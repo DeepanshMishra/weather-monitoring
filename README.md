@@ -8,3 +8,5 @@ The device uses the following Things...
   5. I2C Module
 
 Also we have used ThinkSpeak Cloud for remote monitoring of the data and visualize using graphs.
+We can further use this to predict the weather using Machine Learning Algorithm.
+We can simply download CSV file from ThingSpeak.
