@@ -22,7 +22,7 @@ WiFiClient client;
 LiquidCrystal_I2C lcd(0x27,16,2);  /* set the LCD address to 0x27 for a 16 chars and 2 line display */
 
 void setup(){
- // Wire.begin(SDA_PIN, SCL_PIN);  /* Initialize I2C communication */
+  Wire.begin(SDA_PIN, SCL_PIN);  /* Initialize I2C communication */
   lcd.begin(16, 2); // Initialize the LCD
   lcd.init();
   lcd.backlight();
@@ -54,20 +54,20 @@ void setup(){
 }
 
 void loop(){
-  float t = dht.readTemperature();
-  int h = dht.readHumidity();
+  float t = dht.readTemperature(); //Read temprature
+  int h = dht.readHumidity();  // Read humidity
   if(t>50.00)
         t=0;
   if(h>100)
         h=0;
-  int aqi = analogRead(mq135Pin);       
+  int aqi = analogRead(mq135Pin);  // Read AQI     
   lcd.clear();
   lcd.setCursor(0,0);
   lcd.print("AQI : ");
   lcd.print(aqi);
   lcd.print(" ppm ");
   lcd.setCursor(0,1);
-    lcd.print(" Current AQI ");
+  lcd.print(" Current AQI ");
   
   
   delay(3000);
